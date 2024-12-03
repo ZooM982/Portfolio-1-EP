@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="text-center py-[100px] md:px-[150px] flex flex-wrap justify-center items-center space-y-8 md:space-y-0 md:justify-between">
+    <section className="text-center py-[98px] md:px-[150px] flex flex-wrap justify-center items-center space-y-8 md:space-y-0 md:justify-between">
       {/* Section de l'image */}
       <div className="w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-gray-300 shadow-lg">
         <img
