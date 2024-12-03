@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/CV.jsx";
-import Services from "./components/Services";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer.jsx";
@@ -18,7 +17,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div className="text-center py-20 text-gray-500">Page non trouvée.</div>} />
