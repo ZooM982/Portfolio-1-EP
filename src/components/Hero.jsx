@@ -24,7 +24,7 @@ const Hero = () => {
         <p className="text-left text-gray-500 leading-relaxed">
           Je suis{" "}
           <span className="font-bold text-red-500">Revhieno Roll Haurly</span>,
-          développeur Web et designer UX/UI passionné. J'aide à créer des
+          développeur Web passionné. J'aide à créer des
           expériences numériques attrayantes et performantes.
         </p>
 
