@@ -11,7 +11,7 @@ const projects = [
   {
     name: "Teranga Holding",
     result: "Application pour acheter ou vendre ses biens immobiliers comme des véhicules",
-    link: "",
+    link: "https://www.teranga-holding.com/",
     image: TH,
   },
   {
