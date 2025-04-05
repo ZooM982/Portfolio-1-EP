@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import EASY from "../images/ep.png";
-import HS from "../images/HS.png";
-import AC from "../images/AC.png";
-import HN from "../images/HN.png";
-// import TH from "../images/th.png";
+import Teranga from "../images/teranga.png";
+import Noko from "../images/noko.png";
+import Aerocourse from "../images/aerocourse.png";
+import Haurlyshop from "../images/haurlyshop.png";
+import EASY from "../images/easyportfolio.png";
 import { CiGlobe } from "react-icons/ci";
 
 const projects = [
-  // { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: TH },
-  { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.vercel.app/", image: HN },
-  { name: "Aero Course", resultKey: "projects.aeroCourse", link: "https://aero-course.com/", image: AC },
-  { name: "HS Shopping", resultKey: "projects.hsShopping", link: "https://haurly-shop.vercel.app/", image: HS },
+  { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: Teranga },
+  { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.vercel.app/", image: Noko },
+  { name: "Aero Course", resultKey: "projects.aeroCourse", link: "https://aero-course.com/", image: Aerocourse },
+  { name: "HS Shopping", resultKey: "projects.hsShopping", link: "https://haurly-shop.vercel.app/", image: Haurlyshop },
   { name: "Easy Portfolio", resultKey: "projects.easyPortfolio", link: "", image: EASY },
 ];
 
