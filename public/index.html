@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logo/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dc2626" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio de Revhieno Roll Haurly, développeur web passionné créant des expériences numériques modernes et performantes."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Revhien Roll Haurly Portfolio </title>
+    <title>Portfolio - Revhieno Roll Haurly</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Vous devez activer JavaScript pour exécuter cette application.</noscript>
     <div id="root"></div>
   </body>
 </html>
+  <script>
+    // This is a workaround for the issue with the "react-scripts build" command
+    // and the "index.html" file not being served correctly.
+    if (window.location.pathname === '/index.html') {
+      window.location.replace(window.location.origin);
+    }
+  </script>
