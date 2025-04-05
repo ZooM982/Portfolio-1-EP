@@ -1,121 +1,84 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import EASY from "../images/ep.png";
-import EK from "../images/ek.png";
-import TH from "../images/th.png";
-import AC from "../images/ac.png";
-import HN from "../images/noko.png";
+import HS from "../images/HS.png";
+import TH from "../images/TH.png";
+import AC from "../images/AC.png";
+import HN from "../images/HN.png";
 import { CiGlobe } from "react-icons/ci";
 
-// Liste des projets avec des images valides
 const projects = [
-  {
-    name: "Teranga Holding",
-    result: "Application pour acheter ou vendre ses biens immobiliers comme des véhicules",
-    link: "https://www.teranga-holding.com/",
-    image: TH,
-  },
-  {
-    name: "Hypermarché Noko",
-    result: "Boutique en ligne pour des produits alimentaires",
-    link: "https://hypermarche-noko.vercel.app/",
-    image: HN,
-  },
-  {
-    name: "Aero Course",
-    result: "Application de réservation des courses pour AIBD",
-    link: "https://aero-course.vercel.app/",
-    image: AC,
-  },
-  {
-    name: "EK Shopping",
-    result: "Boutique de vêtements en ligne",
-    link: "https://haurly-shop.vercel.app/",
-    image: EK,
-  },
-  {
-    name: "Easy Portfolio",
-    result: "Application pour créer facilement un portfolio en ligne",
-    link: "",
-    image: EASY,
-  },
+  { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: TH },
+  { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.vercel.app/", image: HN },
+  { name: "Aero Course", resultKey: "projects.aeroCourse", link: "https://aero-course.com/", image: AC },
+  { name: "HS Shopping", resultKey: "projects.hsShopping", link: "https://haurly-shop.vercel.app/", image: HS },
+  { name: "Easy Portfolio", resultKey: "projects.easyPortfolio", link: "", image: EASY },
 ];
 
 const Projects = () => {
-  // État pour gérer l'image agrandie
   const [selectedImage, setSelectedImage] = useState(null);
-
-  // Fonction pour ouvrir l'image en grand
-  const openImage = (image) => {
-    setSelectedImage(image);
-  };
-
-  // Fonction pour fermer la modale
-  const closeImage = () => {
-    setSelectedImage(null);
-  };
+  const { t } = useTranslation();
 
   return (
-    <section className="py-[70px] mt-[100px] bg-gray-100 shadow-2xl rounded-xl mx-[20px] transition duration-500">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Projets Réalisés
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group md:flex rounded-lg text-gray-800 shadow-md overflow-hidden transition transform hover:scale-105 hover:bg-red-500 hover:text-white"
-            >
-              <div className="p-6 md:w-[50%]">
-                <h3 className="text-2xl font-semibold">{project.name}</h3>
-                <p className="mt-4">{project.result}</p>
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 flex items-center text-red-500 hover:underline group-hover:text-white"
-                  >
-                    <CiGlobe className="mr-2 content-center" /> Visiter le site
-                  </a>
-                ) : (
-                  <p className="mt-5 text-gray-500">Site non disponible</p>
-                )}
-              </div>
-              <div className="md:p-6">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full md:w-[200px] h-[200px] rounded-b-lg md:rounded-lg object-cover cursor-pointer"
-                  onClick={() => openImage(project.image)} // Ouvre l'image au clic
-                />
-              </div>
-            </div>
-          ))}
+    <>
+      <Helmet>
+        <title>{t("projects.title")} - Revhieno Roll Haurly</title>
+        <meta name="description" content={t("hero.description")} />
+      </Helmet>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">{t("projects.title")}</motion.h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: index * 0.2 }}
+                className="group bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+              >
+                <div className="relative">
+                  <img src={project.image} alt={project.name} className="w-full h-56 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105" onClick={() => setSelectedImage(project.image)} />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600">{project.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{t(project.resultKey)}</p>
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-red-600 hover:text-red-800 transition duration-200">
+                      <CiGlobe className="mr-2" /> {t("projects.visit")}
+                    </a>
+                  ) : (
+                    <p className="text-gray-400 text-sm italic">{t("projects.inProgress")}</p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Modale pour afficher l'image en grand */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={closeImage}
-        >
-          <img
-            src={selectedImage}
-            alt="Agrandissement"
-            className="max-w-[90%] max-h-[90%] rounded-lg object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            className="absolute top-4 right-4 text-white text-2xl bg-red-500 rounded-full w-10 h-10 flex items-center justify-center"
-            onClick={closeImage}
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedImage(null)}
           >
-            X
-          </button>
-        </div>
-      )}
-    </section>
+            <div className="relative max-w-4xl w-full">
+              <img src={selectedImage} alt="Agrandie" className="w-full h-auto rounded-lg shadow-2xl" />
+              <button className="absolute top-2 right-2 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200" onClick={() => setSelectedImage(null)}>✕</button>
+            </div>
+          </motion.div>
+        )}
+      </motion.section>
+    </>
   );
 };
 

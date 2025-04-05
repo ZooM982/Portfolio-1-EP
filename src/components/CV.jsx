@@ -1,139 +1,102 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { FaReact, FaBootstrap, FaNodeJs, FaLaravel, FaHtml5, FaGitAlt } from "react-icons/fa";
+import { SiTailwindcss, SiPostgresql, SiMysql, SiPostman } from "react-icons/si";
 
-// Composant pour les entrées d'expérience et de formation
 const EntryItem = ({ date, title, description }) => (
-  <div className="flex my-5">
-    <div className="w-[30%] md:text-xl">{date}</div>
-    <div className="w-[60%] ms-5 text-left">
-      <p className="font-bold text-xl">{title}</p>
-      <p>{description}</p>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex flex-col sm:flex-row py-4 border-b border-gray-200 dark:border-gray-600 last:border-0"
+  >
+    <div className="w-full sm:w-1/3 text-gray-600 dark:text-gray-300">{date}</div>
+    <div className="w-full sm:w-2/3">
+      <p className="font-semibold text-gray-900 dark:text-white">{title}</p>
+      <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
-// Composant pour les compétences (carte compacte avec animation)
-const SkillCard = ({ skill }) => (
-  <div className="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out">
-    <p className="text-gray-800 text-sm md:text-base">{skill}</p>
-  </div>
+const SkillCard = ({ skill, icon }) => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md flex items-center gap-2"
+  >
+    {icon}
+    <p className="text-gray-800 dark:text-white text-sm md:text-base">{skill}</p>
+  </motion.div>
 );
 
 const About = () => {
+  const { t } = useTranslation();
+
   const experienceData = [
-    {
-      date: "2025",
-      title: "Développeur Full Stack - Teranga Holding",
-      description:
-        "Développement d'une application web avec React et NestJS, intégration d'une base de données Postgres.",
-    },
-    {
-      date: "2025",
-      title: "Développeur Full Stack - Hypermarche NOKO",
-      description:
-        "Développement d'une application web avec React et NodeJS et MongoDB.",
-    },
-    {
-      date: "2025",
-      title: "Développeur Full Stack - Aero Course",
-      description:
-        "Développement d'une application web avec React et NodeJS et MongoDB.",
-    },
-    {
-      date: "2024 - 2025",
-      title: "Développeur Full Stack - EK Shopping",
-      description:
-        "Développement d'une application web avec React NodeJS et MongoDB",
-    },
-    {
-      date: "2024",
-      title: "Développeur Full Stack - Easy Portfolio",
-      description:
-        "Développement d'une application web avec React et Laravel, intégration d'une base de données MySQL.",
-    },
+    { date: "2025", title: "Développeur Full Stack - Teranga Holding", description: "Développement d'une application web avec React et NestJS, intégration d'une base de données Postgres." },
+    { date: "2025", title: "Développeur Full Stack - Hypermarche NOKO", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
+    { date: "2025", title: "Développeur Full Stack - Aero Course", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
+    { date: "2024 - 2025", title: "Développeur Full Stack - EK Shopping", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
+    { date: "2024", title: "Développeur Full Stack - Easy Portfolio", description: "Développement d'une application web avec React et Laravel, intégration d'une base de données MySQL." },
   ];
 
   const educationData = [
-    {
-      date: "2023-2024",
-      title: "Formation en Développement WEB - Bakeli",
-      description:
-        "Spécialisation en développement web et bases de données (Node.js, MySQL).",
-    },
-    {
-      date: "2022",
-      title: "Licence 2 en Génie informatique - Confucius de l’UCAD",
-      description: "Apprentissage des fondamentaux.",
-    },
-    {
-      date: "2021",
-      title: "Licence 1 en Génie informatique - AMDI",
-      description:
-        "Apprentissage des fondamentaux : HTML, CSS et des templates",
-    },
-    {
-      date: "2018-2019",
-      title: "Bac technique en électronique et électro-technique - I3p",
-      description:
-        "Apprentissage des fondamentaux : HTML, CSS, JavaScript, Git.",
-    },
+    { date: "2023-2024", title: "Formation en Développement WEB - Bakeli", description: "Spécialisation en développement web et bases de données (Node.js, MySQL)." },
+    { date: "2022", title: "Licence 2 en Génie informatique - Confucius de l’UCAD", description: "Apprentissage des fondamentaux." },
+    { date: "2021", title: "Licence 1 en Génie informatique - AMDI", description: "Apprentissage des fondamentaux : HTML, CSS et templates." },
+    { date: "2018-2019", title: "Bac technique en électronique et électro-technique - I3p", description: "Fondamentaux : HTML, CSS, JavaScript, Git." },
   ];
 
   const skills = [
-    "React : Développement d'applications web dynamiques avec gestion des composants et hooks.",
-    "Tailwind CSS : Création d'interfaces responsives avec un styling rapide et personnalisé.",
-    "Bootstrap : Conception d'UI cohérentes et adaptatives via un framework CSS éprouvé.",
-    "NestJS : Construction d'applications backend scalables avec TypeScript.",
-    "Node.js : Développement de serveurs performants et full-stack JavaScript.",
-    "Laravel : Réalisation d'applications PHP sécurisées avec un framework MVC.",
-    "HTML & CSS : Maîtrise des fondamentaux pour des sites modernes et accessibles.",
-    "Git : Gestion de versions et collaboration efficace sur des projets.",
-    "PostgreSQL : Gestion de bases de données relationnelles performantes.",
-    "MySQL : Conception et optimisation de bases de données pour le web.",
-    "Postman : Test et documentation d'API RESTful pour un workflow backend.",
+    { skill: "React : Applications web dynamiques avec composants et hooks.", icon: <FaReact className="text-red-600 text-[35px]" /> },
+    { skill: "Tailwind CSS : Interfaces responsives et personnalisées.", icon: <SiTailwindcss className="text-red-600 text-[35px]" /> },
+    { skill: "Bootstrap : UI cohérentes et adaptatives.", icon: <FaBootstrap className="text-red-600 text-[35px]" /> },
+    { skill: "NestJS : Backend scalable avec TypeScript.", icon: <FaNodeJs className="text-red-600 text-[35px]" /> },
+    { skill: "Node.js : Serveurs performants et full-stack JS.", icon: <FaNodeJs className="text-red-600 text-[35px]" /> },
+    { skill: "Laravel : Applications PHP sécurisées avec MVC.", icon: <FaLaravel className="text-red-600 text-[35px]" /> },
+    { skill: "HTML & CSS : Sites modernes et accessibles.", icon: <FaHtml5 className="text-red-600 text-[35px]" /> },
+    { skill: "Git : Gestion de versions et collaboration.", icon: <FaGitAlt className="text-red-600 text-[35px]" /> },
+    { skill: "PostgreSQL : Bases de données relationnelles.", icon: <SiPostgresql className="text-red-600 text-[35px]" /> },
+    { skill: "MySQL : Conception et optimisation de bases.", icon: <SiMysql className="text-red-600 text-[35px]" /> },
+    { skill: "Postman : Tests et documentation d'API RESTful.", icon: <SiPostman className="text-red-600 text-[35px]" /> },
   ];
 
   return (
-    <section className="py-[70px] mt-[100px] bg-gray-100 shadow-2xl rounded-xl mx-[20px] transition duration-500">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-left font-bold mb-4">CV</h2>
-
-        {/* Section Expérience professionnelle */}
-        <div className="md:flex border-b-2 border-red-500 mb-8">
-          <div className="md:w-1/2 mb-5 font-bold text-2xl">
-            Expérience professionnelle
-          </div>
-          <div className="md:w-1/2">
-            {experienceData.map((item, index) => (
-              <EntryItem key={index} {...item} />
-            ))}
-          </div>
-        </div>
-
-        {/* Section Formations */}
-        <div className="md:flex border-b-2 border-red-500 mb-8">
-          <div className="md:w-1/2 mb-5 font-bold text-2xl">Formations</div>
-          <div className="md:w-1/2">
-            {educationData.map((item, index) => (
-              <EntryItem key={index} {...item} />
-            ))}
-          </div>
-        </div>
-
-        {/* Section Compétences et expertise (grille de cartes avec animations) */}
-        <div className="md:flex">
-          <div className="md:w-1/2 mb-5 font-bold text-2xl">
-            Compétences et expertise
-          </div>
-          <div className="">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {skills.map((skill, index) => (
-                <SkillCard key={index} skill={skill} />
-              ))}
+    <>
+      <Helmet>
+        <title>{t("about.title")} - Revhieno Roll Haurly</title>
+        <meta name="description" content="Découvrez mon parcours, mes expériences professionnelles, formations et compétences en développement web." />
+      </Helmet>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">{t("about.title")}</motion.h2>
+          <div className="space-y-12">
+            <div>
+              <motion.h3 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">{t("about.experience")}</motion.h3>
+              {experienceData.map((item, index) => <EntryItem key={index} {...item} />)}
+            </div>
+            <div>
+              <motion.h3 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }} className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">{t("about.education")}</motion.h3>
+              {educationData.map((item, index) => <EntryItem key={index} {...item} />)}
+            </div>
+            <div>
+              <motion.h3 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.8 }} className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">{t("about.skills")}</motion.h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {skills.map((skill, index) => (
+                  <SkillCard key={index} skill={skill.skill} icon={skill.icon} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.section>
+    </>
   );
 };
 
