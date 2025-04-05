@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import EASY from "../images/ep.png";
 import HS from "../images/HS.png";
-import TH from "../images/TH.png";
 import AC from "../images/AC.png";
 import HN from "../images/HN.png";
+import TH from "../images/th.png";
 import { CiGlobe } from "react-icons/ci";
 
 const projects = [
