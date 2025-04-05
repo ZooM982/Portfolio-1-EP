@@ -18,8 +18,18 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null); // État pour suivre l'image sélectionnée
   const { t } = useTranslation();
+
+  // Fonction pour gérer le clic sur une image et ouvrir la modale
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  // Fonction pour fermer la modale
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <>
@@ -31,28 +41,45 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
+        className="py-20 bg-white dark:bg-gray-900" // Fond blanc ou gris foncé en mode sombre
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">{t("projects.title")}</motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto px-6 md:px-12"> {/* Largeur max inspirée de ndiagandiaye.com */}
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center"
+          >
+            {t("projects.title")}
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.2 }}
-                className="group bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300" // Style carte inspiré
               >
-                <div className="relative">
-                  <img src={project.image} alt={project.name} className="w-full h-56 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105" onClick={() => setSelectedImage(project.image)} />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300" />
+                <div className="relative cursor-pointer" onClick={() => handleImageClick(project.image)}>
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105" // Zoom subtil au survol
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600">{project.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{t(project.resultKey)}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:text-red-600 transition duration-200">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{t(project.resultKey)}</p>
                   {project.link ? (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-red-600 hover:text-red-800 transition duration-200">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-red-600 hover:text-red-700 transition duration-200"
+                    >
                       <CiGlobe className="mr-2" /> {t("projects.visit")}
                     </a>
                   ) : (
@@ -63,17 +90,32 @@ const Projects = () => {
             ))}
           </div>
         </div>
+
+        {/* Modale pour afficher l'image en grand */}
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
-            onClick={() => setSelectedImage(null)}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-6"
+            onClick={handleCloseModal} // Ferme la modale si on clique en dehors
           >
             <div className="relative max-w-4xl w-full">
-              <img src={selectedImage} alt="Agrandie" className="w-full h-auto rounded-lg shadow-2xl" />
-              <button className="absolute top-2 right-2 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200" onClick={() => setSelectedImage(null)}>✕</button>
+              <motion.img
+                src={selectedImage}
+                alt="Agrandie"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+              <button
+                className="absolute top-4 right-4 bg-white text-gray-900 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition duration-200"
+                onClick={handleCloseModal}
+              >
+                ✕
+              </button>
             </div>
           </motion.div>
         )}

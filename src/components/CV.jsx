@@ -45,7 +45,7 @@ const About = () => {
     { date: "2023-2024", title: "Formation en Développement WEB - Bakeli", description: "Spécialisation en développement web et bases de données (Node.js, MySQL)." },
     { date: "2022", title: "Licence 2 en Génie informatique - Confucius de l’UCAD", description: "Apprentissage des fondamentaux." },
     { date: "2021", title: "Licence 1 en Génie informatique - AMDI", description: "Apprentissage des fondamentaux : HTML, CSS et templates." },
-    { date: "2018-2019", title: "Bac technique en électronique et électro-technique - I3p", description: "Fondamentaux : HTML, CSS, JavaScript, Git." },
+    { date: "2018-2019", title: "Bac technique en électronique et électro-technique - I3p", description: "Fondamentaux : HTML, CSS." },
   ];
 
   const skills = [
