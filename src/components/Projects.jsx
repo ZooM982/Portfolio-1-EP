@@ -6,11 +6,11 @@ import EASY from "../images/ep.png";
 import HS from "../images/HS.png";
 import AC from "../images/AC.png";
 import HN from "../images/HN.png";
-import TH from "../images/th.png";
+// import TH from "../images/th.png";
 import { CiGlobe } from "react-icons/ci";
 
 const projects = [
-  { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: TH },
+  // { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: TH },
   { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.vercel.app/", image: HN },
   { name: "Aero Course", resultKey: "projects.aeroCourse", link: "https://aero-course.com/", image: AC },
   { name: "HS Shopping", resultKey: "projects.hsShopping", link: "https://haurly-shop.vercel.app/", image: HS },
