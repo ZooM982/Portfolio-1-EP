@@ -76,7 +76,7 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-red-600 hover:text-red-500 transition duration-200"
+                      className="flex items-center text-[#fa2f0b] hover:text-red-500 transition duration-200"
                     >
                       <CiGlobe className="mr-2" /> {t("projects.visit")}
                     </a>

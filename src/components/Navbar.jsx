@@ -63,7 +63,7 @@ const Navbar = () => {
           <div className="w-6 h-6 rounded-full bg-[#dc2626]"></div>
           <Link
             to="/"
-            className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-red-600 transition duration-200"
+            className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-[#fa2f0b] transition duration-200"
           >
             {t("navbar.home")}
           </Link>
@@ -76,7 +76,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           {/* Menu burger pour mobile */}
           <button
-            className="md:hidden text-gray-700 dark:text-gray-200 hover:text-red-600 text-2xl"
+            className="md:hidden text-gray-700 dark:text-gray-200 hover:text-[#fa2f0b] text-2xl"
             onClick={toggleMenu}
           >
             {isOpen ? "✕" : "☰"}
@@ -90,21 +90,21 @@ const Navbar = () => {
           >
             <Link
               to="/about"
-              className="text-gray-700 dark:text-gray-200 hover:text-red-600 transition duration-200 font-medium"
+              className="text-gray-700 dark:text-gray-200 hover:text-[#fa2f0b] transition duration-200 font-medium"
               onClick={() => setIsOpen(false)}
             >
               {t("navbar.cv")}
             </Link>
             <Link
               to="/projects"
-              className="text-gray-700 dark:text-gray-200 hover:text-red-600 transition duration-200 font-medium"
+              className="text-gray-700 dark:text-gray-200 hover:text-[#fa2f0b] transition duration-200 font-medium"
               onClick={() => setIsOpen(false)}
             >
               {t("navbar.projects")}
             </Link>
             <Link
               to="/contact"
-              className="text-gray-700 dark:text-gray-200 hover:text-red-600 transition duration-200 font-medium"
+              className="text-gray-700 dark:text-gray-200 hover:text-[#fa2f0b] transition duration-200 font-medium"
               onClick={() => setIsOpen(false)}
             >
               {t("navbar.contact")}
@@ -113,15 +113,15 @@ const Navbar = () => {
 
           {/* Drapeaux et thème */}
           <div className="flex items-center gap-4">
-            <button onClick={() => toggleLanguage("fr")} className="hover:text-red-600 transition duration-200">
+            <button onClick={() => toggleLanguage("fr")} className="hover:text-[#fa2f0b] transition duration-200">
               <img src={fr} alt="Français" className="w-6 h-6 rounded-full" />
             </button>
-            <button onClick={() => toggleLanguage("en")} className="hover:text-red-600 transition duration-200">
+            <button onClick={() => toggleLanguage("en")} className="hover:text-[#fa2f0b] transition duration-200">
               <img src={usa} alt="English" className="w-6 h-6 rounded-full" />
             </button>
             <button
               onClick={toggleTheme}
-              className="text-gray-700 dark:text-gray-200 hover:text-red-600 transition duration-200"
+              className="text-gray-700 dark:text-gray-200 hover:text-[#fa2f0b] transition duration-200"
             >
               {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
             </button>

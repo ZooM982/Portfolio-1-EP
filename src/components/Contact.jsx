@@ -85,7 +85,7 @@ const Contact = () => {
                 <input type="text" name="objet" placeholder={t("contact.subject")} value={formData.objet} onChange={handleChange} className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-600 dark:text-white" required />
               </div>
               <textarea name="message" placeholder={t("contact.yourMessage")} value={formData.message} onChange={handleChange} className="w-full p-3 h-32 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-600 dark:text-white" required />
-              <button type="submit" className="w-full py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300">{t("contact.submit")}</button>
+              <button type="submit" className="w-full py-3 bg-[#fa2f0b] text-white rounded-lg hover:bg-red-700 transition duration-300">{t("contact.submit")}</button>
             </motion.form>
           </div>
         </div>

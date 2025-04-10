@@ -49,17 +49,17 @@ const About = () => {
   ];
 
   const skills = [
-    { skill: "React : Applications web dynamiques avec composants et hooks.", icon: <FaReact className="text-red-600 text-[35px]" /> },
-    { skill: "Tailwind CSS : Interfaces responsives et personnalisées.", icon: <SiTailwindcss className="text-red-600 text-[35px]" /> },
-    { skill: "Bootstrap : UI cohérentes et adaptatives.", icon: <FaBootstrap className="text-red-600 text-[35px]" /> },
-    { skill: "NestJS : Backend scalable avec TypeScript.", icon: <FaNodeJs className="text-red-600 text-[35px]" /> },
-    { skill: "Node.js : Serveurs performants et full-stack JS.", icon: <FaNodeJs className="text-red-600 text-[35px]" /> },
-    { skill: "Laravel : Applications PHP sécurisées avec MVC.", icon: <FaLaravel className="text-red-600 text-[35px]" /> },
-    { skill: "HTML & CSS : Sites modernes et accessibles.", icon: <FaHtml5 className="text-red-600 text-[35px]" /> },
-    { skill: "Git : Gestion de versions et collaboration.", icon: <FaGitAlt className="text-red-600 text-[35px]" /> },
-    { skill: "PostgreSQL : Bases de données relationnelles.", icon: <SiPostgresql className="text-red-600 text-[35px]" /> },
-    { skill: "MySQL : Conception et optimisation de bases.", icon: <SiMysql className="text-red-600 text-[35px]" /> },
-    { skill: "Postman : Tests et documentation d'API RESTful.", icon: <SiPostman className="text-red-600 text-[35px]" /> },
+    { skill: "React : Applications web dynamiques avec composants et hooks.", icon: <FaReact className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Tailwind CSS : Interfaces responsives et personnalisées.", icon: <SiTailwindcss className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Bootstrap : UI cohérentes et adaptatives.", icon: <FaBootstrap className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "NestJS : Backend scalable avec TypeScript.", icon: <FaNodeJs className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Node.js : Serveurs performants et full-stack JS.", icon: <FaNodeJs className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Laravel : Applications PHP sécurisées avec MVC.", icon: <FaLaravel className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "HTML & CSS : Sites modernes et accessibles.", icon: <FaHtml5 className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Git : Gestion de versions et collaboration.", icon: <FaGitAlt className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "PostgreSQL : Bases de données relationnelles.", icon: <SiPostgresql className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "MySQL : Conception et optimisation de bases.", icon: <SiMysql className="text-[#fa2f0b] text-[35px]" /> },
+    { skill: "Postman : Tests et documentation d'API RESTful.", icon: <SiPostman className="text-[#fa2f0b] text-[35px]" /> },
   ];
 
   return (
