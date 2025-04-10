@@ -7,11 +7,15 @@ import Noko from "../images/noko.png";
 import Aerocourse from "../images/aerocourse.png";
 import Haurlyshop from "../images/haurlyshop.png";
 import EASY from "../images/easyportfolio.png";
+import Afripay from "../images/afripay.png"
+import Ponitech from "../images/pointech.png"
 import { CiGlobe } from "react-icons/ci";
 
 const projects = [
-  { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://www.teranga-holding.com/", image: Teranga },
-  { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.vercel.app/", image: Noko },
+  {name: "PoinTech Invest", resultKey: "projects.pointech", link: "", image: Ponitech},
+  {name: "Africa send", resultKey: "projects.afripay", link: "https://africa-send.vercel.app/", image: Afripay},
+  { name: "Teranga Holding", resultKey: "projects.terangaHolding", link: "https://teranga-holding.com/", image: Teranga },
+  { name: "Hypermarché Noko", resultKey: "projects.hypermarcheNoko", link: "https://hypermarche-noko.com/", image: Noko },
   { name: "Aero Course", resultKey: "projects.aeroCourse", link: "https://aero-course.com/", image: Aerocourse },
   { name: "HS Shopping", resultKey: "projects.hsShopping", link: "https://haurly-shop.vercel.app/", image: Haurlyshop },
   { name: "Easy Portfolio", resultKey: "projects.easyPortfolio", link: "", image: EASY },
@@ -39,7 +43,7 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="py-20 bg-white dark:bg-gray-900"
+        className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
       >
         <div className="max-w-5xl mx-auto px-6 md:px-12">
           <motion.h2

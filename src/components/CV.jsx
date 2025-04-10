@@ -34,10 +34,12 @@ const About = () => {
   const { t } = useTranslation();
 
   const experienceData = [
+    { date: "2025", title: "Développeur Front-end - PoinTech Invest", description: "Développement d'une application web avec React Router." },
+    { date: "2025", title: "Développeur Full Stack - Africa Send", description: "Développement d'une application MERN." },
     { date: "2025", title: "Développeur Full Stack - Teranga Holding", description: "Développement d'une application web avec React et NestJS, intégration d'une base de données Postgres." },
-    { date: "2025", title: "Développeur Full Stack - Hypermarche NOKO", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
-    { date: "2025", title: "Développeur Full Stack - Aero Course", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
-    { date: "2024 - 2025", title: "Développeur Full Stack - EK Shopping", description: "Développement d'une application web avec React, NodeJS et MongoDB." },
+    { date: "2025", title: "Développeur Full Stack - Hypermarche NOKO", description: "Développement d'une application MERN." },
+    { date: "2025", title: "Développeur Full Stack - Aero Course", description: "Développement d'une application MERN." },
+    { date: "2024 - 2025", title: "Développeur Full Stack - EK Shopping", description: "Développement d'une application MERN." },
     { date: "2024", title: "Développeur Full Stack - Easy Portfolio", description: "Développement d'une application web avec React et Laravel, intégration d'une base de données MySQL." },
   ];
 
